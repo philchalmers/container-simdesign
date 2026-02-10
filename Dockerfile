@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Install R packages from CRAN
 RUN echo 'install.packages(c(' >> install_packages.R && \
   echo '"devtools", "dplyr", "httpgd", "languageserver",' >> install_packages.R && \
-  echo '"modsem", "SimDesign", "roxygen2", "rmarkdown",' >> install_packages.R && \
+  echo '"modsem", "SimDesign", "e1071", "roxygen2", "rmarkdown",' >> install_packages.R && \
   echo '"markdown", "pkgdown", "usethis", "rcmdcheck",' >> install_packages.R && \
   echo '"rversions", "urlchecker", "tinytex"' >> install_packages.R && \
   echo '))' >> install_packages.R
