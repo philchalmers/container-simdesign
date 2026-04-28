@@ -28,7 +28,7 @@ RUN Rscript -e "install.packages('e1071')"
 # Install R packages from CRAN
 RUN echo 'install.packages(c(' >> install_packages.R && \
   echo '"devtools", "dplyr", "httpgd", "languageserver",' >> install_packages.R && \
-  echo '"modsem", "SimDesign", "roxygen2", "rmarkdown",' >> install_packages.R && \
+  echo '"modsem", "mirai", "SimDesign", "roxygen2", "rmarkdown",' >> install_packages.R && \
   echo '"markdown", "pkgdown", "usethis", "rcmdcheck",' >> install_packages.R && \
   echo '"rversions", "urlchecker", "tinytex"' >> install_packages.R && \
   echo '))' >> install_packages.R
