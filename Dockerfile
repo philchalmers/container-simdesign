@@ -26,6 +26,8 @@ RUN apt-get update && \
     libfontconfig1-dev \
     libfreetype6-dev \
     libuv1-dev \
+    ibmagick++-dev \
+    libprotobuf-dev \
     -o Dpkg::Pre-Install-Pkgs::Hold= \
     -o DPkg::options::=--force-overwrite \
     && rm -rf /var/lib/apt/lists/*
