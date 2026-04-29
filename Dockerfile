@@ -1,4 +1,4 @@
-FROM rocker/r-base:latest
+FROM rocker/r-base:4.4.0
 
 LABEL org.opencontainers.image.source=https://github.com/philchalmers/container-simdesign
 LABEL org.opencontainers.image.description="Container for running SimDesign tests and R CMD check"
@@ -15,13 +15,13 @@ RUN apt-get update && \
     libpng-dev \
     libtiff5-dev \
     libjpeg-dev \
-    libcurl4-openssl-dev \
     libssl-dev \
     libharfbuzz-dev \
     libfribidi-dev \
     libfontconfig1-dev \
     libpango1.0-dev \
     libxml2-dev \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
 # install e1071 first
