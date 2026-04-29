@@ -22,6 +22,8 @@ RUN apt-get update && \
     libpango1.0-dev \
     libxml2-dev \
     libcurl4-openssl-dev \
+    libfontconfig1-dev \
+    libfreetype6-dev \
     -o Dpkg::Pre-Install-Pkgs::Hold= \
     -o DPkg::options::=--force-overwrite \
     && rm -rf /var/lib/apt/lists/*
@@ -32,8 +34,8 @@ RUN Rscript -e "install.packages('e1071')"
 # Install R packages from CRAN
 RUN echo 'install.packages(c(' >> install_packages.R && \
   echo '"devtools", "dplyr", "httpgd", "languageserver",' >> install_packages.R && \
-  echo '"modsem", "mirai", "SimDesign", "roxygen2", "rmarkdown",' >> install_packages.R && \
+  echo '"modsem", "fs", "mirai", "SimDesign", "roxygen2", "rmarkdown",' >> install_packages.R && \
   echo '"markdown", "pkgdown", "usethis", "rcmdcheck",' >> install_packages.R && \
   echo '"rversions", "urlchecker", "tinytex"' >> install_packages.R && \
-  echo '))' >> install_packages.R
+  echo '), dependencies = TRUE)' >> install_packages.R
 RUN Rscript install_packages.R
