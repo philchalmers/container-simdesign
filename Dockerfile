@@ -19,7 +19,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends --fix-broken \
     libharfbuzz-dev libfribidi-dev \
     libfontconfig1-dev libpango1.0-dev \
     libxml2-dev \
-    libtiff-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # install e1071 first
