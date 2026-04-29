@@ -10,6 +10,7 @@ RUN apt-get update && \
     sudo \
     pandoc \
     qpdf \
+    cmake \
     libcairo2-dev \
     libfreetype6-dev \
     libpng-dev \
@@ -24,6 +25,7 @@ RUN apt-get update && \
     libcurl4-openssl-dev \
     libfontconfig1-dev \
     libfreetype6-dev \
+    libuv1-dev \
     -o Dpkg::Pre-Install-Pkgs::Hold= \
     -o DPkg::options::=--force-overwrite \
     && rm -rf /var/lib/apt/lists/*
