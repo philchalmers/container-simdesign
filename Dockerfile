@@ -22,6 +22,8 @@ RUN apt-get update && \
     libpango1.0-dev \
     libxml2-dev \
     curl \
+    -o Dpkg::Pre-Install-Pkgs::Hold= \
+    -o DPkg::options::=--force-overwrite \
     && rm -rf /var/lib/apt/lists/*
 
 # install e1071 first
