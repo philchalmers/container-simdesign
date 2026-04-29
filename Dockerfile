@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libpng-dev \
     libtiff5-dev \
     libjpeg-dev \
+    libcurl4 \
     libcurl4-openssl-dev \
     libssl-dev \
     libharfbuzz-dev libfribidi-dev \
