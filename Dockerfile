@@ -5,7 +5,6 @@ LABEL org.opencontainers.image.description="Container for running SimDesign test
 LABEL org.opencontainers.image.licenses=MIT
 
 RUN apt-get update && \
-    apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
     git \
     sudo \
