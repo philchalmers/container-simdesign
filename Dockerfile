@@ -21,7 +21,7 @@ RUN apt-get update && \
     libfontconfig1-dev \
     libpango1.0-dev \
     libxml2-dev \
-    curl \
+    libcurl4-openssl-dev \
     -o Dpkg::Pre-Install-Pkgs::Hold= \
     -o DPkg::options::=--force-overwrite \
     && rm -rf /var/lib/apt/lists/*
