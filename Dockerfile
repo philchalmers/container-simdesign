@@ -4,7 +4,9 @@ LABEL org.opencontainers.image.source=https://github.com/philchalmers/container-
 LABEL org.opencontainers.image.description="Container for running SimDesign tests and R CMD check"
 LABEL org.opencontainers.image.licenses=MIT
 
-RUN apt-get update && apt-get install -y --no-install-recommends --fix-broken \
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends \
     git \
     sudo \
     pandoc \
@@ -16,8 +18,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends --fix-broken \
     libjpeg-dev \
     libcurl4-openssl-dev \
     libssl-dev \
-    libharfbuzz-dev libfribidi-dev \
-    libfontconfig1-dev libpango1.0-dev \
+    libharfbuzz-dev \
+    libfribidi-dev \
+    libfontconfig1-dev \
+    libpango1.0-dev \
     libxml2-dev \
     && rm -rf /var/lib/apt/lists/*
 
