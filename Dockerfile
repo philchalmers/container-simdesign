@@ -1,4 +1,4 @@
-FROM rocker/r-base:latest
+FROM rocker/r-base:4.4.0
 
 LABEL org.opencontainers.image.source=https://github.com/philchalmers/container-simdesign
 LABEL org.opencontainers.image.description="Container for running SimDesign tests and R CMD check"
@@ -14,7 +14,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libpng-dev \
     libtiff5-dev \
     libjpeg-dev \
-    libcurl4 \
     libcurl4-openssl-dev \
     libssl-dev \
     libharfbuzz-dev libfribidi-dev \
