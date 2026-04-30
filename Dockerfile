@@ -30,12 +30,12 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/*
 
 # install essentials first
-RUN Rscript -e "install.packages(c('SimDesign', 'testthat'))"
+RUN Rscript -e "install.packages('SimDesign', dependencies = TRUE)"
 
 # Install R packages from CRAN
 RUN echo 'install.packages(c(' >> install_packages.R && \
-  echo '"e1071", "dplyr", "httpgd", "languageserver",' >> install_packages.R && \
-  echo '"modsem", "SimDesign", "roxygen2", "rmarkdown",' >> install_packages.R && \
+  echo '"testthat", "e1071", "dplyr", "httpgd", "languageserver",' >> install_packages.R && \
+  echo '"modsem", "roxygen2", "rmarkdown",' >> install_packages.R && \
   echo '"markdown", "pkgdown", "usethis", "rcmdcheck",' >> install_packages.R && \
   echo '"rversions", "urlchecker", "tinytex"' >> install_packages.R && \
   echo '))' >> install_packages.R
