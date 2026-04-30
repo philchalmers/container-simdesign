@@ -1,8 +1,8 @@
 FROM rocker/r-base:latest
 
-#LABEL org.opencontainers.image.source=https://github.com/philchalmers/container-simdesign
-#LABEL org.opencontainers.image.description="Container for running SimDesign tests and R CMD check"
-#LABEL org.opencontainers.image.licenses=MIT
+LABEL org.opencontainers.image.source=https://github.com/philchalmers/container-simdesign
+LABEL org.opencontainers.image.description="Container for running SimDesign tests and R CMD check"
+LABEL org.opencontainers.image.licenses=MIT
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
