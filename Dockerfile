@@ -32,13 +32,13 @@ RUN apt-get update && \
     -o DPkg::options::=--force-overwrite \
     && rm -rf /var/lib/apt/lists/*
 
-# install e1071 first
-RUN Rscript -e "install.packages('e1071')"
+# install devtools first
+RUN Rscript -e "install.packages('devtools', dependencies = TRUE)"
 
 # Install R packages from CRAN
 RUN echo 'install.packages(c(' >> install_packages.R && \
-  echo '"devtools", "dplyr", "httpgd", "languageserver",' >> install_packages.R && \
-  echo '"modsem", "fs", "mirai", "SimDesign", "roxygen2", "rmarkdown",' >> install_packages.R && \
+  echo '"e1071", "dplyr", "httpgd", "languageserver",' >> install_packages.R && \
+  echo '"modsem", "fs", "SimDesign", "roxygen2", "rmarkdown",' >> install_packages.R && \
   echo '"markdown", "pkgdown", "usethis", "rcmdcheck",' >> install_packages.R && \
   echo '"rversions", "urlchecker", "tinytex"' >> install_packages.R && \
   echo '), dependencies = TRUE)' >> install_packages.R
