@@ -36,10 +36,10 @@ RUN Rscript -e "install.packages('SimDesign', dependencies = TRUE)"
 RUN Rscript -e "install.packages(c('extraDistr', 'testthat'))"
 
 # Install R packages from CRAN
-#RUN echo 'install.packages(c(' >> install_packages.R && \
-#  echo '"testthat", "e1071", "dplyr", "httpgd", "languageserver",' >> install_packages.R && \
-#  echo '"modsem", "roxygen2", "rmarkdown",' >> install_packages.R && \
-#  echo '"markdown", "pkgdown", "usethis", "rcmdcheck",' >> install_packages.R && \
-#  echo '"rversions", "urlchecker", "tinytex"' >> install_packages.R && \
-#  echo '))' >> install_packages.R
-#RUN Rscript install_packages.R
+RUN echo 'install.packages(c(' >> install_packages.R && \
+  echo '"e1071", "dplyr", "httpgd", "languageserver",' >> install_packages.R && \
+  echo '"modsem", "roxygen2", "rmarkdown",' >> install_packages.R && \
+  echo '"markdown", "pkgdown", "usethis", "rcmdcheck",' >> install_packages.R && \
+  echo '"rversions", "urlchecker", "tinytex"' >> install_packages.R && \
+  echo '))' >> install_packages.R
+RUN Rscript install_packages.R
