@@ -33,7 +33,7 @@ RUN apt-get update && \
 RUN Rscript -e "install.packages('SimDesign', dependencies = TRUE)"
 
 # for tests
-RUN Rscript -e "install.packages('extraDistr')"
+RUN Rscript -e "install.packages(c('extraDistr', 'testthat'))"
 
 # Install R packages from CRAN
 #RUN echo 'install.packages(c(' >> install_packages.R && \
