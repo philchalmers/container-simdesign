@@ -33,7 +33,7 @@ RUN apt-get update && \
 RUN echo _R_CHECK_FORCE_SUGGESTS_=FALSE
 
 # for tests
-RUN Rscript -e "install.packages(c('SimDesign', 'extraDistr', 'testthat'))"
+RUN Rscript -e "install.packages(c('SimDesign', 'extraDistr', 'testthat', 'rcmdcheck'))"
 
 # Install R packages from CRAN
 RUN echo 'install.packages(c(' >> install_packages.R && \
