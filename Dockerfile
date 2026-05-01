@@ -27,7 +27,8 @@ RUN apt-get update && \
     libuv1-dev \
     ibmagick++-dev \
     libprotobuf-dev \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* && \
+    echo _R_CHECK_FORCE_SUGGESTS_=FALSE > ~/.R/check.Renviron
 
 # install essentials first
 RUN Rscript -e "install.packages('SimDesign', dependencies = TRUE)"
