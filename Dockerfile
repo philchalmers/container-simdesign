@@ -27,14 +27,13 @@ RUN apt-get update && \
     libuv1-dev \
     ibmagick++-dev \
     libprotobuf-dev \
-    && rm -rf /var/lib/apt/lists/* && \
-    echo _R_CHECK_FORCE_SUGGESTS_=FALSE > ~/.R/check.Renviron
+    && rm -rf /var/lib/apt/lists/* 
 
-# install essentials first
-RUN Rscript -e "install.packages('SimDesign', dependencies = TRUE)"
+# global def
+RUN echo _R_CHECK_FORCE_SUGGESTS_=FALSE
 
 # for tests
-RUN Rscript -e "install.packages(c('extraDistr', 'testthat'))"
+RUN Rscript -e "install.packages(c('SimDesign', 'extraDistr', 'testthat'))"
 
 # Install R packages from CRAN
 RUN echo 'install.packages(c(' >> install_packages.R && \
