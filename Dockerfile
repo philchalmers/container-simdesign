@@ -5,7 +5,7 @@ LABEL org.opencontainers.image.description="Container for running SimDesign test
 LABEL org.opencontainers.image.licenses=MIT
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
+    apt-get install -y --no-install-recommends --fix-broken \
     git \
     sudo \
     pandoc \
@@ -27,13 +27,15 @@ RUN apt-get update && \
     libuv1-dev \
     ibmagick++-dev \
     libprotobuf-dev \
+    #libcurl4-openssl-dev \
+    libcurl4-gnutls-dev \
     && rm -rf /var/lib/apt/lists/* 
 
 # global def
 RUN echo _R_CHECK_FORCE_SUGGESTS_=FALSE
 
 # for tests
-RUN Rscript -e "install.packages(c('SimDesign', 'extraDistr', 'testthat', 'rcmdcheck'))"
+RUN Rscript -e "install.packages(c('SimDesign', 'extraDistr', 'testthat', 'devtools'))"
 
 # Install R packages from CRAN
 RUN echo 'install.packages(c(' >> install_packages.R && \
