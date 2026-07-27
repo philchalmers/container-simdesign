@@ -27,6 +27,7 @@ RUN apt-get update && \
     libuv1-dev \
     ibmagick++-dev \
     libprotobuf-dev \
+    libuv1-dev \
     #libcurl4-openssl-dev \
     libcurl4-gnutls-dev \
     && rm -rf /var/lib/apt/lists/* 
@@ -36,6 +37,8 @@ RUN echo _R_CHECK_FORCE_SUGGESTS_=FALSE
 
 # for tests
 RUN Rscript -e "install.packages(c('SimDesign', 'extraDistr', 'testthat', 'devtools'))"
+
+RUN Rscript -e "Sys.setenv(USE_BUNDLED_LIBUV = '1'); install.packages('fs', type = 'source')"
 
 # Install R packages from CRAN
 RUN echo 'install.packages(c(' >> install_packages.R && \
