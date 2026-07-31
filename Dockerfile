@@ -45,6 +45,8 @@ RUN echo 'install.packages(c(' >> install_packages.R && \
   echo '"e1071", "dplyr", "httpgd", "languageserver",' >> install_packages.R && \
   echo '"modsem", "roxygen2", "rmarkdown",' >> install_packages.R && \
   echo '"markdown", "pkgdown", "usethis", "rcmdcheck",' >> install_packages.R && \
-  echo '"rversions", "urlchecker", "tinytex", "stringfish", "qs2"' >> install_packages.R && \
+  echo '"rversions", "urlchecker", "tinytex"' >> install_packages.R && \
   echo '))' >> install_packages.R
 RUN Rscript install_packages.R
+
+RUN Rscript -e "install.packages(c('stringfish', 'qs2'))"
